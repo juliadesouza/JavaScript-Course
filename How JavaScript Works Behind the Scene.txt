@@ -1,0 +1,41 @@
+* high level: developer does not have to worry about managing 
+resources.
+* garbage-collected: automatically removes old, unused objects
+from the computer memory.
+* interpreted or just-in-time compiled:
+* prototyped-based object-oriented: almost everything in js is an 
+object. 
+* first-class functions: functions are simply treated as variables.
+We can pass them into other functions and return them from functions.
+* dynamic: dynamically-typed language, which means no data type 
+definitions.
+* single-threaded: 
+    - concurrency model: how the js engine handles multiple tasks
+    hapenning at the same time?
+        R: java script runs in one single thread, so it can only 
+        do one thing at a time.
+
+THE JAVASCRIPT ENGINE AND RUNTIME
+JS ENGINE
+- Its a program that executes js code. Every browser has its own js engine.
+- Every js engine contains:
+    1) call stack: is where our code is actually executed.
+    2) heap: where stores all the objects that our application needs.
+
+COMPILATIONS VS. INTERPRETATION
+- Every single computer program needs to be converted into machine code (zeros and ones),
+and this can happen using compilation or interpretation.
+- In compilation, the entire source code is converted into machine code at once.
+And this machine code is then written into a portable file that can be executed on 
+any computer.
+-  In interpretation, there is an interpreter which runs through the source code, 
+and executes it line by line. implementations execute instructions directly and freely, 
+without previously compiling a program into machine-language instructions. They are
+read and executed by some other program. (MUCH SLOWER)
+- Modern JS uses Just-in-Time (JIT) compilation: entire code is converted into 
+machine code at onde, then executed immediately. During execution the program may 
+be compiled into native code to improve its performance. 
+
+JS RUNTIME
+It's a big box which inludes all the things that we need to use 
+JavaScript. Runtine is composed by the js engine and web API's.

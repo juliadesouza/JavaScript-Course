@@ -1,0 +1,75 @@
+DESTRUCTURING ARRAYS
+ - Destructuring is to break a complex data structure down 
+into a smaller data structure like a variable.
+
+- Example 01:
+    NO destructuring       |   WITH destructuring
+    const arr = [1,2,3];   |   const arr = [1,2,3];          
+    const a = arr[0];      |   const [x, y, z] = arr;
+    const b = arr[1];      |
+    const c = arr[3];      |
+
+- Example 02:
+const restaurant = {
+    nome: 'Classico Italiano',
+    location: 'Via Angelo Tavanti, 31, Italy',
+    categories: ['italian', 'pizzeria', 'vegetarian', 'organic'],
+    starterMenu: ['focaccia', 'bruschetta', 'garlic bread'],
+    mainMenu: ['pizza', 'pasta', 'risoto']
+}
+const [first, second] = restaurant.categories;
+
+- Mutating Variables: if you want to switch the values, you can do:
+[second, first] = [first, second]
+
+- Example 03: Nested Arrays
+const nested = [2, 4, [5, 6]];
+const [i, ,j] = nested;
+const [i, ,[j,k]] = nested;
+console.log(i, j, k);
+
+- Example 04: Default value
+NO default value 
+const [p,q,r] = [8,9];
+
+WITH default value 
+const [p=1,q=1,r=1] = [8,9];
+
+
+
+DESTRUCTURING OBJECTS
+- Here, we use curly braces.
+- Example 01:
+const restaurant = {
+    nome: 'Classico Italiano',
+    location: 'Via Angelo Tavanti, 31, Italy',
+    categories: ['italian', 'pizzeria', 'vegetarian', 'organic'],
+    starterMenu: ['focaccia', 'bruschetta', 'garlic bread'],
+    mainMenu: ['pizza', 'pasta', 'risoto'],
+    openingHours : {thu:{open: 12, close: 22}, fri:{open:11, close:23}, sat:{open:0, close: 24}}
+}
+const {name, categories} = restaurant;
+console.log(name, categories);
+
+OBS: Nesse exemplo, os nomes das variaveis dentro das chaves devem 
+ser iguais aos atributos dos objetos. Se, por algum motivo, queremos
+que essas vars tenham outro nome, devemos fazer:
+const {name: restaurantName, categories:tags} = restaurant;
+console.log(restaurantName, tags);
+
+- Example 02: Default values
+const {menu = [], starterMenu: starters = []} = restaurant;
+
+- Example 03: Mutating variables
+let a = 1;
+let b = 9;
+const obj = {a: 23, b: 7, c: 14};
+({a,b}) = obj);
+console.log(a,b);
+
+- Example 04: Nested objects
+const {openingHours} = restaurant;
+const {sat} = openingHours;
+console.log(sat);
+const {fri:{open, close}} = openingHours;
+console.log(open, close);

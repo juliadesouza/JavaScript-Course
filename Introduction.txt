@@ -1,0 +1,206 @@
+  
+WHAT JAVASCRIPT IS
+JavaScript is a programming language: 
+- high level: we don't have to worry about complex stuff like
+    memory management.
+- objected-oriented: based on objects for storing most kinds of
+    data.
+- multi-paradigm: we can use differente styles os programming
+    (structuring)
+  
+
+ 
+WEB DEVELOPMENT
+- HTML: content 
+- CSS: presentation
+- JS: programming language: building web applications
+  
+
+ 
+VARIABLES
+To declare a variable, you can use: let, const or var. 
+- Let: variables that you can reassign a value
+- Const: variable value cannot change
+- Var: it works similar to "let". 
+OBS: Variables names cannot start with numbers
+  
+
+
+STRINGS 
+- To concatenate string: 
+    let name = "julia"
+    1) console.log("My name is " + name);
+    2) console.log(`My name is ${name}`);
+  
+
+STRICT MODE
+It's a special mode that allows us to write secure js code. It also creates visible errors 
+in the development console.
+'use strict'; --> it has to be the first statement in the code (beginning).
+  
+ 
+FUNCTIONS
+1) Regular 
+    function nome_da_funcao(parametros){
+        // corpo da funcao
+    }
+    nome_da_funcao(parametros); // calling / running / invoking function
+
+2) Anonnymous function
+    const variavel = function (parametros) {
+        // corpo da funcao
+    }
+
+3) Arrow function
+    const variavel =  (parametro1, parametro2, ...) => {
+        // corpo da funcao
+        return ...;
+    } 
+
+    if you have just one line inside the function, you cam ommit
+    the return statement and the braces. Ex: const variavel = (a,b) => a+b;
+
+4) Functions Declarations x Expressions
+In the topic 1, we have a function declaration as in the topic 2
+we have a expression.  The big difference between them is that we can 
+call function declarations before they are defined.
+  
+
+ 
+ARRAYS
+1) How to create arrays 
+    const friends = ['Leila', 'Henrique', 'Leo', 'Camila', 'Thais'];
+    const years = new Array(1991, 2000, 2003, 1678);
+2) Get an element at x position
+    friends[x];
+3) Length of the array (how much elements it's inside it)
+    friends.length
+4) Add a new element to the array
+    friends.push('Emilio');
+    friends[x] = 'Emilio';
+  
+
+ 
+OBJECTS
+const aluno = {
+    primeironome: "julia", 
+    sobrenome: "souza",
+    idade: 21,
+    friends: ['Leila', 'Henrique', 'Leo', 'Camila', 'Thais']
+}
+
+1) Dot vs Bracket Notation
+    aluno.nome; // dot notation
+    aluno['nome']; // bracket notation
+    OBS: in bracket notation, the advantage is that we can pass 
+    an expression. Ex:
+        const key = 'nome'
+        aluno['primeiro'+key];
+        aluno['sobre'+key];
+    
+    To add a new attribute, do:
+    - nome.novoAtributo or nome['nomeAtributo'];
+
+2) Object Method 
+    A) we can add functions to objects. It has to be a expression. 
+        const julia = {
+            name: "julia",
+            job: "software developer",
+            birthYear: 2000,
+            calcAge: function(birthYear){
+                return 2022-birthYear;
+            }
+        }
+
+        julia.calcAge(2000);
+        julia['calcAge'](2000);
+
+    B) To use the birthYear defined inside the object, we will use the keyword THIS.
+        const julia = {
+            name: "julia",
+            job: "software developer",
+            birthYear: 2000,
+            calcAge: function(){
+                return 2022-this.birthYear;
+            }
+        }
+        julia.calcAge();
+
+    C) We can store the function return in a property of the object
+        const julia = {
+                name: "julia",
+                job: "software developer",
+                birthYear: 2003,
+                calcAge: function(){
+                    this.age = 2022-this.birthYear;// create a new property;
+                    return this.age;
+                }
+            }
+            console.log(julia.calcAge());
+            console.log(julia.age);
+   
+
+ 
+ITERATION
+1) FOR
+    for(let rep=1; rep<=10; rep++){
+        console.log(`Lifting weights repetition ${rep}`);
+    }
+2) Looping Arrays, Breaking and Continuing
+    A) Looping Arrays
+        const names = ["Julia", "Hanna", "Ana Laura", "Elisangela", "Marcio"];
+        for(let i=0; i<names.length; i++){
+            console.log(names[i]);
+        }
+
+    B) Continue
+        const names = ["Julia", "Hanna", "Ana Laura", "Elisangela", "Marcio"];
+        for (let i = 0; i < names.length; i++) {
+            if (i % 2 == 0) continue; // will not execute what it becomes after
+            console.log(names[i]);
+        }
+    C) Break
+        const names = ["Julia", "Hanna", "Ana Laura", "Elisangela", "Marcio"];
+        for (let i = 0; i < names.length; i++) {
+            if (i % 2 != 0) break; // will not execute the loop anymore
+            console.log(names[i]);
+        }
+3) Looping Backwards and Loops in Loops
+    A) Backwards
+        const names = ["Julia", "Hanna", "Ana Laura", "Elisangela", "Marcio"];
+        for (let i = names.length-1; i >= 0; i--) {
+            console.log(names[i]);
+        }
+    B) Loops in Loops
+        const pessoa1 = {
+            nome: "Julia",
+            amigos: ["Leila", "Henrique", "Thaís", "Leo"],
+        }
+        const pessoa2 = {
+            nome: "Ana Laura",
+            amigos: ["Rebecca", "Hanna"],
+        }
+
+        const pessoas = [pessoa1, pessoa2];
+        for (let i = 0; i < pessoas.length; i++) {
+            console.log(`Amigos da ${pessoas[i].nome}:`);
+            for (let j = 0; j < pessoas[i].amigos.length; j++) {
+                console.log(`  Amigo num. ${j + 1}: ${pessoas[i].amigos[j]}`);
+            }
+            console.log(`---------------------------`);
+        }
+4) While
+    let i = 0;
+    while(i<=10){
+        console.log(`Estou no loop numero: ${i});
+        i++;
+    }
+  
+
+
+
+
+
+
+
+

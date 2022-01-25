@@ -1,0 +1,79 @@
+SIMPLE ARRAY METHODS
+- Slice: Extracting part of the array without changing
+the original array.
+    let arr = ['a', 'b', 'c', 'd', 'e'];
+    arr.slice(2);   --> Output: ['c', 'd', 'e']; All elements from index 2
+    arr.slice(2,4); --> Output: ['c', 'd']; All elements from index 2 to index 4
+    arr.slice(-2);  --> Output: ['c', 'd']; Last 2 elements
+
+- Splice: It's similar to slice, but it changes the array.
+    let arr = ['a', 'b', 'c', 'd', 'e'];
+    arr.splice(2);  -- > Output: ['c', 'd', 'e']; All elements from index 2
+
+- Reverse: it reverses the original array.
+    let arr = ['a', 'b', 'c'];
+    arr.reverse();  -- > Output: ['c', 'b', 'e'];
+    
+- Concat: 
+    let arr = ['a', 'b', 'c'];
+    let arr2 = ['d', 'e'];
+    const letters = arr.concat(arr2); --> Output: ['a', 'b', 'c', 'd', 'e'];
+
+- Join: joins all elements in one single string
+    letters.join('-'); --> Output: a-b-c-d-e
+
+
+THE 'AT' METHOD 
+- Example: 
+    const arr = [23,11,64];
+    arr.at(0); --> Output: 23; it returns the element in the zero position
+
+
+LOOPING ARRAYS: FOREACH
+- It calls a callback function an applies this function in every element of the array 
+- You cannot use the statements continue and break in forEach loop.
+- Example:
+    const movements = [200, 100, -400, 3000, 150, -2];
+    movements.forEach(function(movement){
+        if(movement>0){
+            console.log(`You deposited ${movement}`);
+        } else {
+            console.log(`You withdraw ${Math.abs(movement)});
+        }
+    });
+
+
+DATA TRANSFORMATIONS: MAP, FILTER AND REDUCE
+- These are methods to create new arrays based on tranforming datas from others arrays.
+
+1) MAP: it's similar to forEach, but it creates a brand new array. 
+    - Returns a new array containg the results of applying an operation
+    on all original array elements.
+    const eurToUsd = 1.1;
+    const movements = [200, 100, -400, 3000, 150, -2];
+    const movementsToUsd = movements.map(function(mov){
+        return mov*eurToUsd;
+    })
+
+2) FILTER: it's used to filter the elements in the original array
+which satisfy a certain condition.
+    - Returns a new array containing the array elements that passed
+    a specified test condition.
+    const deposits = movements.filter(function(mov){
+        return move>0;
+    })
+
+3) REDUCE: it's used to boil down all the elements of the original 
+array into one single value.
+    - Boils ("reduces") all array elements down to one single value
+    (e.g. adding all elements together).
+    // Sum
+    const balance = movements.reduce(function(acc, cur){
+        return acc + cur;
+    }, 0);
+
+    // Max value
+    const max = movements.reduce((acc, mov) => {
+        return acc > mov ? acc : mov;
+    }, movements[0]);
+
